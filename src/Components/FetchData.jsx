@@ -1,10 +1,8 @@
 import UseFetch from "./UseFetch";
 
 const FetchData = () => {
-  const [data] = UseFetch(
-    "https://api.npoint.io/9045c260b1565daa9e15"
-  );
-  const [poses]  = UseFetch("https://api.npoint.io/4459a9a10e43812e1152")
+  const [data] = UseFetch("https://api.npoint.io/9045c260b1565daa9e15");
+  const [poses] = UseFetch("https://api.npoint.io/4459a9a10e43812e1152");
   return (
     <div className="list_data_main">
       <h1 className="usefetch_heading">Use Fetch Custom Hook</h1>
@@ -19,6 +17,15 @@ const FetchData = () => {
             </li>
           ))}
       </ul>
+      <ol>
+        {poses.map((item) => (
+          <li key={item?.id}>
+            <h1>{item?.name}</h1>
+            <h2>{item?.benefits}</h2>
+            <h3>{item?.time_duration}</h3>
+          </li>
+        ))}
+      </ol>
     </div>
   );
 };
